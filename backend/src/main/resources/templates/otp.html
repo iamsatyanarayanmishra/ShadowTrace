@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - codingnepalweb.com -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>OTP Verification Form</title>
+    <link rel="stylesheet" th:href="@{./css/styleotp.css}" />
+    <!-- Boxicons CSS -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+   <script th:src="@{./css/scriptotp.js}" defer></script>
+  </head>
+  <body>
+    <div style="position: fixed; top: 10px; left: 10px; z-index: 1000;">
+        <a href="index.html">
+            <img th:src="@{./Logo/Shadowtrace-Kristellar.png}" alt="Company Logo" style="height: 70px;">
+        </a>
+    </div>
+    
+    <div class="background-video">
+        <video autoplay muted loop>
+            <source th:src="@{./Video/Main video.mp4}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="video-overlay"></div> <!-- Dark overlay -->
+    </div>
+    <div class="container">
+      <header>
+        <i class="bx bxs-check-shield"></i>
+      </header>
+      <h4>Enter OTP Code</h4>
+      <form action="#">
+        <div class="input-field">
+          <input type="number" />
+          <input type="number" disabled />
+          <input type="number" disabled />
+          <input type="number" disabled />
+        </div>
+        <button>Verify OTP</button>
+      </form>
+    </div>
+  </body>
+</html>

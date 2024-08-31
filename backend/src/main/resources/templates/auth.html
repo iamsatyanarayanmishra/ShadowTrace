@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kristellar Aerospace - 2FA</title>
+    <link rel="icon" th:href="@{/images/LOGO_KRISTELLAR.png}" type="image/png">
+    <link th:href="@{/css/styles.css}" rel="stylesheet"> <!-- Ensure you have your CSS file -->
+    <link th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css}" rel="stylesheet"> <!-- Font Awesome -->
+    <link th:href="@{/css/auth.css}" rel="stylesheet">
+    <link th:href="@{https://fonts.googleapis.com/css2?family=Nova+Square&display=swap}" rel="stylesheet"> <!-- Nova Square Font -->
+</head>
+<body>
+    <div style="position: fixed; top: 10px; left: 10px; z-index: 1000;">
+        <a th:href="@{/index}">
+            <img th:src="@{/images/Logo/Shadowtrace-Kristellar.png}" alt="Company Logo" style="height: 70px;">
+        </a>
+    </div>
+    
+    <div class="background-video">
+        <video autoplay muted loop>
+            <source th:src="@{/video/Main video.mp4}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="video-overlay"></div> <!-- Dark overlay -->
+    </div>
+    <div id="twofa-placeholder">
+        <h2 class="login-heading">Authentication</h2>
+        <form id="twofa-form" th:action="@{/authenticate}" method="post">
+            <label for="verification-code" style="color: whitesmoke;">Verification Code:</label>
+            <input type="text" id="verification-code" name="verificationCode" placeholder="Enter your verification code" required>
+            <br>
+            <div class="jeg-elementor-kit jkit-button icon-position-before jeg_module_3978_2_66a7689265bfc">
+                <button type="submit" class="jkit-button-wrapper">Login</button>
+            </div>
+        </form>
+    </div>
+    
+    <script data-cfasync="false" th:src="@{cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js}"></script>
+    <script type='text/javascript'>
+        const lazyloadRunObserver = () => {
+            const lazyloadBackgrounds = document.querySelectorAll( `.e-con.e-parent:not(.e-lazyloaded)` );
+            const lazyloadBackgroundObserver = new IntersectionObserver( ( entries ) => {
+                entries.forEach( ( entry ) => {
+                    if ( entry.isIntersecting ) {
+                        let lazyloadBackground = entry.target;
+                        if( lazyloadBackground ) {
+                            lazyloadBackground.classList.add( 'e-lazyloaded' );
+                        }
+                        lazyloadBackgroundObserver.unobserve( entry.target );
+                    }
+                });
+            }, { rootMargin: '200px 0px 200px 0px' } );
+            lazyloadBackgrounds.forEach( ( lazyloadBackground ) => {
+                lazyloadBackgroundObserver.observe( lazyloadBackground );
+            } );
+        };
+        const events = [
+            'DOMContentLoaded',
+            'elementor/lazyload/observe',
+        ];
+        events.forEach( ( event ) => {
+            document.addEventListener( event, lazyloadRunObserver );
+        } );
+    </script>
+   
+</body>
+</html>

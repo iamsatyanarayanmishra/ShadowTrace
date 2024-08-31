@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShadowTrace</title>
+    <link th:href="@{https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap}" rel="stylesheet">
+    <link th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css}" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css}">
+    <link th:href="@{https://fonts.googleapis.com/css2?family=Nova+Square&display=swap}" rel="stylesheet">
+
+    <link th:href="@{./css/style.css}" rel="stylesheet">
+</head>
+<body>
+    <div class="background-video">
+        <video autoplay muted loop>
+            <source th:src="@{./Video/Video2.mp4}" th:type="@{video/mp4}">
+        </video>
+        <div class="video-overlay"></div> <!-- Dark overlay -->
+    </div>
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShadowTrace</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="@{style.css}" rel="stylesheet">
+</head>
+<body>
+    <div class="background-container">
+        
+        <video class="background-video" autoplay muted loop>
+            <source th:src="@{./Video/Video2.mp4}" th:type="@{video/mp4}">
+        </video>
+        <div class="video-overlay"></div>
+        
+        <div class="dashboard-container">
+           
+            <div class="sidebar">
+                <div style="position: fixed; top: 10px; left: 10px; z-index: 1000;">
+                    <a href="index.html">
+                        <img th:src="@{./Logo/Shadowtrace-Kristellar.png}" alt="Company Logo" style="height: 60px;">
+                    </a>
+                </div>
+
+                <div class="profile" style="margin-top: 70px;" >
+                   
+                    <h3>PROFILE</h3><p>Name: Ayushi</p>
+                    <p>Mob No: 123-456-7890</p>
+                    <p>IMEI: 123456789012345</p>
+                    <p>Email: john.doe@example.com</p>
+                    <p>DOB: 01/01/1990</p>
+                    <p>Address: 123 Main St, Anytown, USA</p>
+                </div>
+                <div class="nav-section" style="margin-top: 15px;">
+                    <div class="nav-heading" onclick="toggleNavTreeview('social-media-treeview')">
+                        <i class="fa fa-share-alt"></i>
+                        <span>Social Media Apps</span>
+                        <i class="fa fa-angle-down right"></i>
+                    </div>
+                    <div class="nav-treeview" id="social-media-treeview">
+                        <ul>
+                            <li><a th:href="@{whatsapp}"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a></li>
+                            <li><a th:href="@{fb}"><i class="fa-brands fa-facebook"></i> Facebook</a></li>
+                            <li><a th:href="@{insta}"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
+                            <li><a th:href="@{snap}"><i class="fa-brands fa-snapchat"></i> Snapchat</a></li>
+                            <li><a th:href="@{tele}"><i class="fa-brands fa-telegram"></i> Telegram</a></li>
+                            <li><a th:href="@{x}"><i class="fa-brands fa-x"></i>X</a></li>
+                        </ul>
+                        
+                    </div>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-heading" onclick="toggleNavTreeview('live-treeview')">
+                        <i class="fa fa-video"></i>
+                        <span>Live</span>
+                        <i class="fa fa-angle-down right"></i>
+                    </div>
+                    <div class="nav-treeview" id="live-treeview">
+                        <ul>
+                            <li><a th:href="@{call_logs}"><i class="fa fa-phone"></i> Call Logs</a></li>
+                            <li><a th:href="@{recording}"><i class="fa fa-microphone"></i>Ambient</a></li>
+                            <li><a th:href="@{photos}"><i class="fa fa-camera"></i>Photos</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-content">
+                <div class="grid-container">
+                    <div class="section" id="profile">
+                        <h3>SOCIAL PROFILE</h3>
+                       
+                    
+                        <p>WhatsApp ID: +1234567890</p>
+                        <p>Instagram: @ayushi_insta</p>
+                        <p>Facebook: facebook.com/ayushi.profile</p>
+                        <p>Snapchat: ayushi_snap</p>
+                        <p>Telegram: @ayushi_telegram</p>
+                    </div>
+                
+                  
+                    <div class="section" id="mobile-info">
+                        <h3>MOBILE PROFILE</h3>
+                        <p id="mobile-model">Model: Loading...</p>
+                        <p id="mobile-version">Version: Loading...</p>
+                        <p id="mobile-os">OS: Loading...</p>
+                    </div>
+                    <div class="section" id="current-location">
+                        <h3>CURRENT LOCATION</h3>
+                        <div class="map-container" id="current-location-map"></div>
+                    </div>
+                    <div class="section" id="notifications">
+                        <h3>NOTIFICATIONS</h3>
+                        <div id="notifications-list">
+                            <!-- Notifications will be dynamically inserted here -->
+                        </div>
+                        <style>#notifications {
+                            background: rgba(236, 255, 253, 0.4);
+                            padding: 20px;
+                            border-radius: 25px;
+                            color: aliceblue;
+                           
+                        }
+                        
+                        .notification {
+                            padding: 10px;
+                            border-bottom: 1px solid #000;
+                        }
+                        
+                        .notification:last-child {
+                            border-bottom: none;
+                        }
+                        </style>
+                    </div>
+                    
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleNavTreeview(id) {
+            const treeview = document.getElementById(id);
+            if (treeview.style.display === 'block') {
+                treeview.style.display = 'none';
+                treeview.previousElementSibling.querySelector('.fa-angle-down').classList.replace('fa-angle-down', 'fa-angle-right');
+            } else {
+                treeview.style.display = 'block';
+                treeview.previousElementSibling.querySelector('.fa-angle-right').classList.replace('fa-angle-right', 'fa-angle-down');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            function fetchMobileInfo() {
+                return {
+                    model: 'Samsung Galaxy S21',
+                    version: 'Android 11',
+                    os: 'Exynos 2100'
+                };
+            }
+
+            const mobileInfo = fetchMobileInfo();
+            document.getElementById('mobile-model').textContent = 'Model: ' + mobileInfo.model;
+            document.getElementById('mobile-version').textContent = 'Version: ' + mobileInfo.version;
+            document.getElementById('mobile-os').textContent = 'OS: ' + mobileInfo.os;
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+    function fetchNotifications() {
+        return [
+            { type: 'SMS', content: 'You have a new message from John.' },
+            { type: 'Email', content: 'Your invoice for July has been sent.' },
+            { type: 'Alert', content: 'Reminder: Meeting at 3 PM.' }
+        ];
+    }
+
+    function displayNotifications() {
+        const notifications = fetchNotifications();
+        const notificationsList = document.getElementById('notifications-list');
+        
+        notificationsList.innerHTML = notifications.map(notification => `
+            <div class="notification">
+                <strong>${notification.type}:</strong> ${notification.content}
+            </div>
+        `).join('');
+    }
+
+    displayNotifications();
+});
+document.addEventListener('DOMContentLoaded', function () {
+    function fetchSocialMediaAccounts() {
+        return {
+            whatsapp: '+1234567890',
+            instagram: '@ayushi_insta',
+            facebook: 'facebook.com/ayushi.profile',
+            snapchat: 'ayushi_snap',
+            telegram: '@ayushi_telegram'
+        };
+    }
+
+    const accounts = fetchSocialMediaAccounts();
+    document.getElementById('whatsapp-id').textContent = 'WhatsApp ID: ' + accounts.whatsapp;
+    document.getElementById('instagram-id').textContent = 'Instagram: ' + accounts.instagram;
+    document.getElementById('facebook-id').textContent = 'Facebook: ' + accounts.facebook;
+    document.getElementById('snapchat-id').textContent = 'Snapchat: ' + accounts.snapchat;
+    document.getElementById('telegram-id').textContent = 'Telegram: ' + accounts.telegram;
+});
+
+
+    </script>
+    <!-- Add your Google Maps API key here -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap"></script>
+</body>
+</html>
+
+
+    <script>
+        function initMap() {
+            // Initialize the archive location map
+            const archiveLocationMap = new google.maps.Map(document.getElementById('archive-location-map'), {
+                center: { lat: -34.397, lng: 150.644 }, // Replace with actual coordinates
+                zoom: 8
+            });
+
+            // Initialize the current location map
+            const currentLocationMap = new google.maps.Map(document.getElementById('current-location-map'), {
+                center: { lat: -34.397, lng: 150.644 }, // Replace with actual coordinates
+                zoom: 8
+            });
+        }
+
+        function toggleNavTreeview(id) {
+            const treeview = document.getElementById(id);
+            if (treeview.style.display === 'block') {
+                treeview.style.display = 'none';
+                treeview.previousElementSibling.querySelector('.fa-angle-down').classList.replace('fa-angle-down', 'fa-angle-right');
+            } else {
+                treeview.style.display = 'block';
+                treeview.previousElementSibling.querySelector('.fa-angle-right').classList.replace('fa-angle-right', 'fa-angle-down');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            function fetchMobileInfo() {
+                return {
+                    model: 'Samsung Galaxy S21',
+                    version: 'Android 11',
+                    os: 'Exynos 2100'
+                };
+            }
+
+            const mobileInfo = fetchMobileInfo();
+            document.getElementById('mobile-model').textContent = 'Model: ' + mobileInfo.model;
+            document.getElementById('mobile-version').textContent = 'Version: ' + mobileInfo.version;
+            document.getElementById('mobile-os').textContent = 'OS: ' + mobileInfo.os;
+        });
+    </script>
+    <!-- Add your Google Maps API key here -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap"></script>
+</body>
+</html>
