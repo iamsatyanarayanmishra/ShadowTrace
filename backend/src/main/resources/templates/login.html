@@ -16,7 +16,6 @@
             <img th:src="@{./Logo/Shadowtrace-Kristellar.png}" alt="Company Logo" style="height: 70px;">
         </a>
     </div>
-    
     <div class="background-video">
         <video autoplay muted loop>
             <source th:src="@{./Video/Main video.mp4}" type="video/mp4">
@@ -27,10 +26,9 @@
     <div id="login-placeholder">
         
         <form method="post"
-        role="form"
-        th:action="@{/login}" id="login-form">
-            <label for="username" style="color: whitesmoke;">Id:</label>
-            <input type="text" id="username" name="username" placeholder="Enter your Id" required>
+        data-th-action="@{/authenticate}" id="login-form">
+            <label for="email" style="color: whitesmoke;">Id:</label>
+            <input type="text" id="email" name="email" placeholder="Enter your Id" required>
             <br>
             <label for="password" style="color: whitesmoke;">Passcode:</label>
             <input type="password" id="password" name="password" placeholder="Enter your Passcode" required>

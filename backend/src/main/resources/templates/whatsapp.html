@@ -11,7 +11,7 @@
 <body>
     <div class="background-container">
         <video class="background-video" autoplay muted loop>
-            <source th:src="@{/Video/Index video.mp4}" type="video/mp4">
+            <source th:src="@{/Video/Index video.mp4}" th:type="@{video/mp4}">
         </video>
         <div class="video-overlay"></div>
     </div>
@@ -73,7 +73,7 @@
                             <div class="message-content">Sounds interesting. Let me know if you need any help.</div>
                         </div>
                     </div>
-                    <div id="chat2" class="chat" style="display: none;">
+                    <div id="chat2" class="chat" style="display: none;">    
                         <div class="message received">
                             <img th:src="@{/photos/jane.png}" alt="Jane Smith" class="profile-pic-small">
                             <div class="message-content">
