@@ -25,8 +25,7 @@
     </div>
     <div id="login-placeholder">
         
-        <form method="post"
-        data-th-action="@{/authenticate}" id="login-form">
+        <form th:action="@{/login}" method="post" id="login-form">
             <label for="email" style="color: whitesmoke;">Id:</label>
             <input type="text" id="email" name="email" placeholder="Enter your Id" required>
             <br>

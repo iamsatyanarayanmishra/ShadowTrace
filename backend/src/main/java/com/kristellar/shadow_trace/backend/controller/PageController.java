@@ -32,14 +32,14 @@ public class PageController {
         user.setName(userForm.getName());
         user.setEmail(userForm.getEmail());
         user.setPassword(userForm.getPassword());
-        user.setAbout(userForm.getAbout());
+        user.setPhoneNumber(userForm.getPhoneNumber());
         userService.saveUser(user);
         return "redirect:/login";
     }
 
     @GetMapping("/login")
     public String login() {
-        return "login";
+        return "/login";
     }
 
     @GetMapping("/dashboard")

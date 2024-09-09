@@ -6,10 +6,8 @@ import com.kristellar.shadow_trace.backend.entities.User;
 
 public interface UserService {
     User saveUser(User user);
-    Optional<User> getUserById(String id);
     Optional<User> updateUser(User user);
     void deleteUser(String id);
-    boolean isUserExit(String userId);
-    boolean isUserExistByEmail(String email);
+    boolean isUserExit(String email);
     List<User> getAllUser();
 }

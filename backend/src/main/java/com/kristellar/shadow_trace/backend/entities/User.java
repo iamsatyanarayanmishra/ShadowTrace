@@ -1,13 +1,10 @@
 package com.kristellar.shadow_trace.backend.entities;
 
 import java.util.*;
-
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
 import jakarta.persistence.CascadeType;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
@@ -32,10 +29,8 @@ import java.util.stream.Collectors;
 @Entity
 public class User implements UserDetails{
     // User data
-    @Id
-    private String userId;
-    @Column(name = "user_name", nullable = false)
     private String name;
+    @Id
     @Column(nullable = false, unique = true)
     private String email;
     private String phoneNumber;
