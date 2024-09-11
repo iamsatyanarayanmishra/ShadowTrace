@@ -25,8 +25,8 @@ import java.util.stream.Collectors;
 @NoArgsConstructor
 @Getter
 @Setter
-@Builder
 @Entity
+@Builder
 public class User implements UserDetails{
     // User data
     private String name;

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kristellar.shadow_trace.backend.entities.User;
 import com.kristellar.shadow_trace.backend.forms.UserForm;
@@ -39,7 +40,12 @@ public class PageController {
 
     @GetMapping("/login")
     public String login() {
-        return "/login";
+        return "login";
+    }
+
+    @PostMapping("/login")
+    public String loginPost(@RequestParam("email") String email, @RequestParam("password") String password) {
+        return "redirect:/dashboard";
     }
 
     @GetMapping("/dashboard")

@@ -17,8 +17,8 @@ import lombok.ToString;
 @Builder
 @ToString
 public class UserForm {
-    @Id
     private String name;
+    @Id
     private String email;
     private String phoneNumber;
     private String password;
