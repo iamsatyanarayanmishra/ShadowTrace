@@ -48,10 +48,10 @@
 
                 <div class="profile" style="margin-top: 70px;" >
                    
-                    <h3>PROFILE</h3><p>Name: Ayushi</p>
-                    <p>Mob No: 123-456-7890</p>
+                    <p>Name: <span th:text="${loggedInUser.name}"></span></p>
+                    <p>Mob No: <span th:text="${loggedInUser.phoneNumber}"></span></p>
                     <p>IMEI: 123456789012345</p>
-                    <p>Email: john.doe@example.com</p>
+                    <p>Email: <span th:text="${loggedInUser.email}"></span></p>
                     <p>DOB: 01/01/1990</p>
                     <p>Address: 123 Main St, Anytown, USA</p>
                 </div>

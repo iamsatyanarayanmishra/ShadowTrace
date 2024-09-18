@@ -1,4 +1,6 @@
 package com.kristellar.shadow_trace.backend.controller;
+
+import java.security.Principal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,15 +10,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import com.kristellar.shadow_trace.backend.entities.User;
 import com.kristellar.shadow_trace.backend.forms.UserForm;
+import com.kristellar.shadow_trace.backend.helpers.Helper;
 import com.kristellar.shadow_trace.backend.services.UserService;
-
+import jakarta.servlet.http.HttpSession;
 @Controller
 public class PageController {
     @Autowired
     private UserService userService;
+
+    private org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(PageController.class);
 
     // handling register
     @GetMapping("/register")
@@ -44,12 +48,15 @@ public class PageController {
     }
 
     @PostMapping("/login")
-    public String loginPost(@RequestParam("email") String email, @RequestParam("password") String password) {
+    public String loginPost(@RequestParam("email") String email, @RequestParam("password") String password, HttpSession session) {
         return "redirect:/dashboard";
     }
 
     @GetMapping("/dashboard")
-    public String dashboard() {
+    public String dashboard(Model model, Principal principal) {
+        String name = Helper.getEmailOfLoggedInUser(principal);
+        User user = userService.getUserByEmail(name);
+        model.addAttribute("loggedInUser", user);
         return "dashboard";
     }
 

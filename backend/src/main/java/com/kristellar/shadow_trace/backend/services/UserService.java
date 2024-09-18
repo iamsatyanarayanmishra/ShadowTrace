@@ -9,5 +9,6 @@ public interface UserService {
     Optional<User> updateUser(User user);
     void deleteUser(String id);
     boolean isUserExit(String email);
+    User getUserByEmail(String email);
     List<User> getAllUser();
 }

@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
 import com.kristellar.shadow_trace.backend.entities.User;
 import com.kristellar.shadow_trace.backend.helpers.AppConstants;
 import com.kristellar.shadow_trace.backend.helpers.ResourceNotFoundException;
@@ -17,7 +16,6 @@ import com.kristellar.shadow_trace.backend.services.UserService;
 
 @Service
 public class UserServiceImpl implements UserService{
-
     @Autowired
     private UserRepository userRepo;
     @Autowired
@@ -67,5 +65,10 @@ public class UserServiceImpl implements UserService{
     @Override
     public List<User> getAllUser() {
         return userRepo.findAll();
+    }
+
+    @Override
+    public User getUserByEmail(String email) {
+        return userRepo.findByEmail(email).orElseThrow(()->new ResourceNotFoundException("Uaser not found."));
     }
 }
