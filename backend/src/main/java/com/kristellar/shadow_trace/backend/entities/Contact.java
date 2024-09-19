@@ -21,7 +21,6 @@ public class Contact {
     @Id
     private String email;
     private String phoneNumber;
-    private String address;
     private String picture;
     private String description;
     private boolean favorite = false;

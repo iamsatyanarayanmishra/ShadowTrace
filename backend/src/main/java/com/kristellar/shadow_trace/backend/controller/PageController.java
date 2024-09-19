@@ -38,6 +38,7 @@ public class PageController {
         user.setEmail(userForm.getEmail());
         user.setPassword(userForm.getPassword());
         user.setPhoneNumber(userForm.getPhoneNumber());
+        user.setAddress(userForm.getAddress());
         userService.saveUser(user);
         return "redirect:/login";
     }

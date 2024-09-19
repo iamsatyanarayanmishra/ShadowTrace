@@ -34,6 +34,7 @@ public class User implements UserDetails{
     @Column(nullable = false, unique = true)
     private String email;
     private String phoneNumber;
+    private String address;
     @Column(length = 1000)
     private String about;
     private String password;
